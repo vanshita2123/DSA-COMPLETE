@@ -37,6 +37,34 @@ int Rtaylor(int x,int n)
         return Rtaylor(x,n-1) + Rpower(x,n)/Rfact(n);
 }
 
+//Taylor Series Horner’s Rule
+double Taylor_Horner(int x, int n)
+{
+    static double s;
+    if(n==0)
+        return s;
+    s=1+x*s/n;
+    return Taylor_Horner(x,n-1);
+
+}
+
+//Taylor Series Iterative
+double Taylor_iterative(int x, int n)
+{
+    double s=1;
+    int i;
+    double num=1;
+    double den=1;
+
+    for(i=1;i<=n;i++)
+    {
+        num*=x;
+        den*=i;
+        s+=num/den;
+    }
+    return s;
+}
+
 void main()
 {
     printf("%d",Rtaylor(5,20));
