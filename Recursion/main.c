@@ -20,7 +20,7 @@ int Rfact(int n)
 }
 
 //Power evaluation
-int Rpower(int x, int y)
+float Rpower(int x, int y)
 {
     if(y==1)
         return x;
@@ -28,8 +28,8 @@ int Rpower(int x, int y)
         return Rpower(x,y-1)*x;
 }
 
-//Taylor series
-int Rtaylor(int x,int n)
+//Taylor series (While printing use %f)
+float Rtaylor(int x,int n)
 {
     if(n==0)
         return 1;
@@ -109,5 +109,6 @@ int main() {
         F[i] = -1;
 
     printf("%d \n", mfib(6));
+    printf("%f",Rtaylor(4,15));
     return 0;
 }
